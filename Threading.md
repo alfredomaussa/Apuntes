@@ -346,3 +346,30 @@ if __name__ == "__main__":
         observer.stop()
     observer.join()
 ```
+##### Queue [Docs](https://docs.python.org/es/3/library/queue.html)
+Es casi igual que usar una lista (vi que es almenos 2-10 veces más rápida):
+``` python
+a=[]
+
+a.append(item) # add element
+a.pop(0) # return FIFO element
+```
+Aunque tiene unos métodos adicionales similares a los de "threading", destaco `Queue.task_done()` y `Queue.join()` | `Queue.put(item, block=True, timeout=None)` y`Queue.get(block=True, timeout=None)`
+
+* Respecto a threading, recuerda que `Ctrl+c` solo acaba con el thread Main, los demás siguen vivos...
+
+##### Timer
+No olvides el "start", además ...
+``` python
+def hello():
+    print("hello, world")
+
+t = Timer(30.0, hello)
+t.start()  # after 30 seconds, "hello, world" will be printed
+```
+Me pareción útil:
+``` python 
+tempTimerSaveRealTime.cancel()
+tempTimerSaveRealTime= threading.Timer(1,saveRealTime)
+tempTimerSaveRealTime.start()
+```
