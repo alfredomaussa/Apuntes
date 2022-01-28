@@ -356,7 +356,7 @@ a.pop(0) # return FIFO element
 ```
 Aunque tiene unos métodos adicionales similares a los de "threading", destaco `Queue.task_done()` y `Queue.join()` | `Queue.put(item, block=True, timeout=None)` y`Queue.get(block=True, timeout=None)`
 
-* Respecto a threading, recuerda que `Ctrl+c` solo acaba con el thread Main, los demás siguen vivos...
+* Respecto a threading, recuerda que `Ctrl+c` solo acaba con el thread Main, los demás siguen vivos... si esperas `ctrl+c` dentro de un tread no Main, se bloqueará sin dejar salir de consola: `in _wait_for_tstate_lock elif lock.acquire(block, timeout): KeyboardInterrupt`
 
 ##### Timer
 No olvides el "start", además ...
@@ -373,3 +373,5 @@ tempTimerSaveRealTime.cancel()
 tempTimerSaveRealTime= threading.Timer(1,saveRealTime)
 tempTimerSaveRealTime.start()
 ```
+
+[Threading and Multiprocessing](https://docs.xlwings.org/en/stable/threading_and_multiprocessing.html)
